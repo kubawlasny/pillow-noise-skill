@@ -1,0 +1,51 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Pillow Noise",
+          "summary": "Loops brown noise for sleep.",
+          "description": "Plays continuous brown noise on your Echo. Say 'Alexa, open pillow noise' to start, 'Alexa, stop' to end.",
+          "examplePhrases": [
+            "Alexa, open pillow noise",
+            "Alexa, start pillow noise",
+            "Alexa, stop"
+          ],
+          "keywords": ["noise", "sleep", "brown noise"],
+          "smallIconUri": "",
+          "largeIconUri": ""
+        }
+      },
+      "isAvailableWorldwide": false,
+      "distributionCountries": ["US"],
+      "testingInstructions": "Private skill. Development stage only.",
+      "category": "ALARMS_AND_CLOCKS"
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "",
+          "termsOfUseUrl": ""
+        }
+      }
+    }
+  }
+}

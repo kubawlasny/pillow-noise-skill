@@ -1,0 +1,13 @@
+{
+  "name": "pillow-noise-skill",
+  "version": "1.0.0",
+  "description": "Alexa skill that loops brown noise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"no tests\" && exit 0"
+  },
+  "dependencies": {
+    "ask-sdk-core": "^2.14.0",
+    "ask-sdk-model": "^1.86.0"
+  }
+}
