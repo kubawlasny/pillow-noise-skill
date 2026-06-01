@@ -83,14 +83,16 @@ Either way, host your own copy. Do not point the skill at someone else's file.
 
 ### 5. Add the code
 
-1. Open the **Code** tab at the top.
-2. Replace the contents of `index.js` with `lambda/index.js` from this repository.
-3. Replace the contents of `package.json` with `lambda/package.json` from this repository.
-4. In `index.js`, find this line:
+You need your hosted MP3 link from step 2 ready before this step. If you have not hosted the MP3 yet, do step 2 first.
+
+1. Open the **Code** tab at the top. You will see an editor with files, including `index.js` and `package.json`.
+2. Open `lambda/index.js` from this repository, copy all of it, and paste it over the contents of `index.js` in the editor.
+3. Do the same with `package.json`: paste `lambda/package.json` over the contents of `package.json` in the editor.
+4. Now, still in the editor, in the `index.js` you just pasted, find this line:
    ```js
    const TRACK_URL = 'REPLACE_WITH_YOUR_MP3_URL';
    ```
-   Put your MP3 link from step 2 between the quotes.
+   Replace `REPLACE_WITH_YOUR_MP3_URL` with your MP3 link from step 2, keeping the quotes. Do this here in the editor, after pasting, not before.
 5. Click **Deploy** and wait for it to finish.
 
 ### 6. Turn on audio
@@ -120,6 +122,7 @@ Say: *"Alexa, open pillow noise."* You should hear brown noise. Say *"Alexa, sto
 
 If you are an AI assistant helping someone through this README, follow these while you walk them through the steps above:
 
+- Follow the steps in order and do not skip any. In particular, make sure they have hosted the MP3 and have its link (steps 1 and 2) before the code step. In the code step, they paste the code into the console editor first, and only then replace the `TRACK_URL` line inside that editor. Never replace the URL before pasting the code.
 - Take them through it ONE step at a time. After each step, wait for them to confirm before moving to the next.
 - Keep each message short and in plain words. They may not be technical, so tell them exactly what to click or type.
 - When a step refers to a file (the code or the trigger phrases) and you cannot open the repository yourself, ask them to paste that file's contents.
