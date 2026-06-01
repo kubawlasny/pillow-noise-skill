@@ -34,6 +34,7 @@ Guide me by these rules:
 - The Amazon console changes often and may not look exactly as you expect. If a screen looks different from what you describe, I will paste a screenshot, and you adapt to what I actually see.
 
 Things to get right about this setup:
+- I need to put a brown noise MP3 at a public web link. The easiest way, with no account, is catbox.moe: I drag the file onto the page and it gives me a direct link. Suggest that first, rather than telling me to create a GitHub account.
 - The skill stays private in my own developer account. We are NOT publishing it to the Alexa store, so identity verification is NOT required and I can skip it.
 - When creating the skill: choose a Custom model and "Alexa-hosted (Node.js)" hosting. The hosting region does not matter, the default is fine.
 - After I paste the code, the "Audio Player" interface must be turned ON under Build, then Interfaces, then saved and the model built again. Without this there is no sound. This is the most common mistake.
@@ -86,25 +87,28 @@ Pick one:
 - **Make your own.** Run `python generate_noise.py` (needs `numpy`, `scipy`, and `ffmpeg`). It produces `brown_noise.mp3`, about 10 minutes long.
 - **Use one you already have.** Any brown noise MP3 works. Keep it small, a 44.1 kHz, 128 kbps file is ideal.
 
-### 2. Put the MP3 on a public link of your own
+### 2. Put the MP3 on a public link
 
-The skill needs to reach the file at a public link that returns the raw MP3, and that link has to be yours. Do not point the skill at someone else's file, including the example above. The example is for you to download and then host yourself.
+The skill needs the file at a public link that returns the raw MP3. Two easy ways:
 
-The simplest way: create a public GitHub repository of your own, upload the MP3 through the website, open the file, and copy its "raw" link. Free file hosts work too.
+- **Fastest, no account: [catbox.moe](https://catbox.moe).** Drag your MP3 onto the page. It gives you a direct link like `https://files.catbox.moe/xxxx.mp3`. Use that. (Catbox is a free community host. If your file ever stops working, just upload it again. Uploading the exact same file gives you the same link back.)
+- **More durable, your own host: GitHub.** Create a public GitHub repository, upload the MP3 through the website, open the file, and copy its "raw" link.
 
-### 2. Create the skill
+Either way, host your own copy. Do not point the skill at someone else's file.
+
+### 3. Create the skill
 
 1. Go to [developer.amazon.com/alexa/console/ask](https://developer.amazon.com/alexa/console/ask). If you are asked to verify your identity, you can skip it. This skill stays private and is never published to the store, so verification is not needed.
 2. Click **Create Skill** and name it whatever you like, for example "Pillow Noise".
 3. Choose: primary locale **English (US)**, model **Custom**, hosting **Alexa-hosted (Node.js)**. If asked for a hosting region, the default is fine.
 
-### 3. Add the trigger phrases
+### 4. Add the trigger phrases
 
 1. In the left menu: **Build**, then **Interaction Model**, then **JSON Editor**.
 2. Replace everything there with the contents of `skill-package/interactionModels/custom/en-US.json` from this repository.
 3. Click **Save**, then **Build Model**, and wait for it to finish.
 
-### 4. Add the code
+### 5. Add the code
 
 1. Open the **Code** tab at the top.
 2. Replace the contents of `index.js` with `lambda/index.js` from this repository.
@@ -113,10 +117,10 @@ The simplest way: create a public GitHub repository of your own, upload the MP3 
    ```js
    const TRACK_URL = 'REPLACE_WITH_YOUR_MP3_URL';
    ```
-   Put your MP3 link from step 1 between the quotes.
+   Put your MP3 link from step 2 between the quotes.
 5. Click **Deploy** and wait for it to finish.
 
-### 5. Turn on audio
+### 6. Turn on audio
 
 1. Left menu: **Build**, then **Interfaces**.
 2. Switch **Audio Player** on.
@@ -124,14 +128,14 @@ The simplest way: create a public GitHub repository of your own, upload the MP3 
 
 This step is easy to forget. Without it, the skill builds fine but plays no sound.
 
-### 6. Test it in the console
+### 7. Test it in the console
 
 1. Open the **Test** tab at the top.
 2. Change the dropdown from "Off" to **Development**.
 3. Type or say `open pillow noise`.
 4. An audio-only skill shows no spoken reply, so seeing "No Content" is normal. In the **JSON Output** panel you should see a block mentioning `AudioPlayer.Play` with your MP3 link in it.
 
-### 7. Test it on your Echo
+### 8. Test it on your Echo
 
 Once the skill is in Development mode, it is automatically available on every Echo signed into the same Amazon account.
 
@@ -159,6 +163,7 @@ Say: *"Alexa, open pillow noise."* You should hear brown noise. Say *"Alexa, sto
 - Never run `ask smapi update-skill-manifest` on an Alexa-hosted skill. It erases the connection between the skill and its code and is hard to undo.
 
 **Facts to get right:**
+- For hosting the MP3, suggest catbox.moe first (drag the file onto the page, get a direct link, no account). Offer a public GitHub repo as the more durable alternative. Do not default to telling a non-technical user to create a GitHub account.
 - Identity verification is NOT required. The skill stays private, it is not published to the store, so the user can skip any identity-verification prompt.
 - When creating the skill: Custom model, Alexa-hosted (Node.js). The hosting region does not matter, the default is fine.
 - The Audio Player interface must be turned on (Build, then Interfaces). Without it there is no sound. This is the single most common mistake.
