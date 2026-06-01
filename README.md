@@ -11,7 +11,7 @@ It stays private to your own Amazon account. It is not published to the Alexa Sk
 The easy way, even if you are not technical, is to let an AI assistant walk you through it.
 
 - **Coding agent** (Claude Code, Codex, Cursor, Cowork): paste the link to this repository and say *"Follow this repo and guide me through deploying this Alexa skill, one step at a time."* It can read the files itself.
-- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Either paste this whole README into a new chat, or copy just the [all-in-one prompt](#all-in-one-prompt-for-an-ai-assistant) at the bottom. Then send it.
+- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Paste this whole README into a new chat, then send the short [start message](#using-a-chat-tool) at the bottom. The README gives it the full instructions, and the start message makes it guide you one step at a time.
 - **Do it yourself:** follow [Manual setup](#manual-setup) below.
 
 Whichever path you pick: the Amazon console changes over time, so a screen may not look exactly as described. If that happens, take a screenshot and ask your AI assistant what to do. That solves almost everything.
@@ -116,38 +116,24 @@ Say: *"Alexa, open pillow noise."* You should hear brown noise. Say *"Alexa, sto
 
 ---
 
-## All-in-one prompt for an AI assistant
+## Using a chat tool
 
-If you are using a chat tool, copy everything in the box below into a new chat and send it. It is self-contained, so the assistant has all the steps and will guide you through to a working skill.
+Chat tools usually cannot open a link and read these files. So do this:
+
+1. Copy this **whole README** and paste it into a new chat (ChatGPT, Claude, Gemini).
+2. Then send the short message below. It tells the assistant how to guide you. The detailed steps come from the README you just pasted.
 
 ```
-You are helping me set up a private Alexa skill called Pillow Noise that plays brown noise on my Echo, looping until I say stop. The code lives in a public GitHub repository. You probably cannot open links, so I will paste files from the repo whenever you ask.
+Use the instructions I just pasted to guide me through deploying this skill.
 
-How to guide me:
-- Go ONE step at a time. After each step, wait for me to confirm it is done before giving the next.
-- Keep every message short. One action per message. No long lists, no jumping ahead.
-- I may not be technical. Tell me exactly what to click or type, in plain words.
-- The Amazon console changes often and may not look exactly as you expect. If a screen looks different, I will paste a screenshot and you adapt to what I actually see.
-- Do not submit the skill to the Alexa store. It stays private in my own account.
+- Take me ONE step at a time. After each step, wait for me to say it is done before moving to the next.
+- Keep each message short and in plain words. I may not be technical, so tell me exactly what to click.
+- When the steps refer to a file (the code or the trigger phrases), ask me to paste that file's contents, since you cannot open the repo yourself.
+- If a screen looks different from the instructions, I will paste a screenshot and you adapt to what I actually see.
+- For hosting the MP3, suggest catbox.moe first (no account needed).
+- I can skip any identity-verification prompt, because this skill is never published.
 
-Facts to get right:
-- Identity verification is NOT required, because the skill is never published. I can skip any identity-verification prompt.
-- For hosting the MP3, the easiest way with no account is catbox.moe: I drag the file onto the page and get a direct link. Suggest that first, not creating a GitHub account.
-- When creating the skill: Custom model, Alexa-hosted (Node.js). The hosting region does not matter, the default is fine.
-- The phrase to start it is "pillow noise". If Alexa opens a different skill, we pick a more unusual phrase and rebuild.
-- The Audio Player interface must be turned ON, or there is no sound. This is the most common mistake.
-
-Walk me through these steps, one at a time:
-1. Check that I have an Amazon developer account and an Echo on the same account. If I have no account, point me to developer.amazon.com and wait while I make one.
-2. Get a brown noise MP3. Ask whether I want to download the example file from the repo, generate my own, or use one I already have.
-3. Host the MP3 on a public link (suggest catbox.moe), then check the link actually returns audio.
-4. Create the skill in the Amazon developer console: Custom model, Alexa-hosted (Node.js).
-5. Add the trigger phrases: ask me to open the file skill-package/interactionModels/custom/en-US.json in the repo and paste its contents into the console JSON Editor, then Save and Build Model.
-6. Add the code: ask me to open lambda/index.js and lambda/package.json in the repo and paste them into the Code tab. Help me put my MP3 link into the TRACK_URL line, then Deploy.
-7. Turn on the Audio Player interface under Build, then Interfaces, then Save and Build Model again.
-8. Test in the console (Test tab, Development mode), then on my Echo by saying "Alexa, open pillow noise". Saying "Alexa, stop" should stop it.
-
-Start with step 1 now.
+Start with the very first step.
 ```
 
 ---
