@@ -11,7 +11,7 @@ It stays private to your own Amazon account. It is not published to the Alexa Sk
 The easy way, even if you are not technical, is to let an AI assistant walk you through it.
 
 - **Coding agent** (Claude Code, Codex, Cursor, Cowork): paste the link to this repository and say *"Follow this repo and guide me through deploying this Alexa skill, one step at a time."* It can read the files itself.
-- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Paste this whole README into a new chat, then tell it: *"guide me through this one step at a time, starting now."* The README already includes notes that tell it how to guide you.
+- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Paste this whole README into a new chat, then tell it: *"guide me through this one step at a time, starting now."* Keep the repository open in another tab so you can copy the files when a step asks for them. If the assistant ever writes out a file itself, ignore it and copy the real one from the repo.
 - **Do it yourself:** follow [Manual setup](#manual-setup) below.
 
 Whichever path you pick: the Amazon console changes over time, so a screen may not look exactly as described. If that happens, take a screenshot and ask your AI assistant what to do. That solves almost everything.
@@ -125,7 +125,7 @@ If you are an AI assistant helping someone through this README, follow these whi
 - Follow the steps in order and do not skip any. In particular, make sure they have hosted the MP3 and have its link (steps 1 and 2) before the code step. In the code step, they paste the code into the console editor first, and only then replace the `TRACK_URL` line inside that editor. Never replace the URL before pasting the code.
 - Take them through it ONE step at a time. After each step, wait for them to confirm before moving to the next.
 - Keep each message short and in plain words. They may not be technical, so tell them exactly what to click or type.
-- When a step refers to a file (the code or the trigger phrases) and you cannot open the repository yourself, ask them to paste that file's contents.
+- When a step refers to a file (the code or the trigger phrases), never write, generate, or guess its contents yourself. You do not have the real files, so anything you produce will be wrong and the skill will fail. Always have the user open that file in the repository and paste its real contents.
 - If a screen looks different from what the steps describe, ask for a screenshot and adapt to what they actually see. The Amazon console changes over time.
 - For hosting the MP3, suggest catbox.moe first (no account needed). A public GitHub repo is the more durable alternative.
 - Identity verification is NOT required, because this skill is never published. They can skip any identity-verification prompt.
