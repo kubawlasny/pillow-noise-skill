@@ -11,7 +11,7 @@ It stays private to your own Amazon account. It is not published to the Alexa Sk
 The easy way, even if you are not technical, is to let an AI assistant walk you through it.
 
 - **Coding agent** (Claude Code, Codex, Cursor, Cowork): paste the link to this repository and say *"Follow this repo and guide me through deploying this Alexa skill, one step at a time."* It can read the files itself.
-- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Paste this whole README into a new chat, then send the short [start message](#using-a-chat-tool) at the bottom. The README gives it the full instructions, and the start message makes it guide you one step at a time.
+- **Chat tool** (ChatGPT, Claude.ai, Gemini): these usually cannot open a link, so do not just paste the URL. Paste this whole README into a new chat, then tell it: *"guide me through this one step at a time, starting now."* The README already includes notes that tell it how to guide you.
 - **Do it yourself:** follow [Manual setup](#manual-setup) below.
 
 Whichever path you pick: the Amazon console changes over time, so a screen may not look exactly as described. If that happens, take a screenshot and ask your AI assistant what to do. That solves almost everything.
@@ -116,25 +116,17 @@ Say: *"Alexa, open pillow noise."* You should hear brown noise. Say *"Alexa, sto
 
 ---
 
-## Using a chat tool
+## Notes for an AI assistant guiding this setup
 
-Chat tools usually cannot open a link and read these files. So do this:
+If you are an AI assistant helping someone through this README, follow these while you walk them through the steps above:
 
-1. Copy this **whole README** and paste it into a new chat (ChatGPT, Claude, Gemini).
-2. Then send the short message below. It tells the assistant how to guide you. The detailed steps come from the README you just pasted.
-
-```
-Use the instructions I just pasted to guide me through deploying this skill.
-
-- Take me ONE step at a time. After each step, wait for me to say it is done before moving to the next.
-- Keep each message short and in plain words. I may not be technical, so tell me exactly what to click.
-- When the steps refer to a file (the code or the trigger phrases), ask me to paste that file's contents, since you cannot open the repo yourself.
-- If a screen looks different from the instructions, I will paste a screenshot and you adapt to what I actually see.
-- For hosting the MP3, suggest catbox.moe first (no account needed).
-- I can skip any identity-verification prompt, because this skill is never published.
-
-Start with the very first step.
-```
+- Take them through it ONE step at a time. After each step, wait for them to confirm before moving to the next.
+- Keep each message short and in plain words. They may not be technical, so tell them exactly what to click or type.
+- When a step refers to a file (the code or the trigger phrases) and you cannot open the repository yourself, ask them to paste that file's contents.
+- If a screen looks different from what the steps describe, ask for a screenshot and adapt to what they actually see. The Amazon console changes over time.
+- For hosting the MP3, suggest catbox.moe first (no account needed). A public GitHub repo is the more durable alternative.
+- Identity verification is NOT required, because this skill is never published. They can skip any identity-verification prompt.
+- Do not submit the skill to the Alexa store. It stays private in their own account.
 
 ---
 
