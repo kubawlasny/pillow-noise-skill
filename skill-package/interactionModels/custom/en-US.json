@@ -4,6 +4,18 @@
       "invocationName": "pillow noise",
       "intents": [
         {
+          "name": "PlayNoiseIntent",
+          "samples": [
+            "play",
+            "start",
+            "begin",
+            "play noise",
+            "play brown noise",
+            "start brown noise",
+            "play the noise"
+          ]
+        },
+        {
           "name": "AMAZON.CancelIntent",
           "samples": []
         },

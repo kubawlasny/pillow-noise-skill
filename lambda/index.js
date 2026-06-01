@@ -57,6 +57,19 @@ const LaunchRequestHandler = {
   },
 };
 
+// Custom intent: "Alexa, ask pillow noise to play", or "play" within a session.
+const PlayNoiseIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest' &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === 'PlayNoiseIntent'
+    );
+  },
+  handle(handlerInput) {
+    return playDirective(handlerInput, 'REPLACE_ALL');
+  },
+};
+
 const PlaybackNearlyFinishedHandler = {
   canHandle(handlerInput) {
     return Alexa.getRequestType(handlerInput.requestEnvelope) === 'AudioPlayer.PlaybackNearlyFinished';
@@ -165,6 +178,7 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
   .addRequestHandlers(
     LaunchRequestHandler,
+    PlayNoiseIntentHandler,
     PlaybackNearlyFinishedHandler,
     StopIntentHandler,
     ResumeIntentHandler,
